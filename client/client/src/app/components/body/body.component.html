@@ -1,0 +1,9 @@
+<div class="body-container">
+    @if (loading()) { <div class="loading">Calculating…</div> }
+
+    @if (result()) {
+        <app-results [data]="result()!"></app-results>
+    } @else {
+        <app-prediction-form (onPredict)="handlePredict($event)"></app-prediction-form>
+    }
+</div>          

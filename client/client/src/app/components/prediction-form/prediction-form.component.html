@@ -1,0 +1,46 @@
+<div class="prediction-form-container">
+    <div class="row">
+        <label>Price (USD)
+            <input type="number" formControlName="price" step="0.01" />
+        </label>
+
+        <label>Required Age
+            <input type="number" formControlName="requiredAge" />
+        </label>
+    </div>
+
+    <div class="row">
+        <label><input type="checkbox" formControlName="isIndie"/> Is Indie?</label>
+        <label><input type="checkbox" formControlName="supportsEnglish"/> Supports English?</label>
+
+        <label>Supported languages amount
+            <input type="number" formControlName="supportedLanguagesAmount" />
+        </label>
+    </div>
+
+    <div class="selector-container">
+        <label>Tags
+        <input type="text"/>
+        </label>
+        <div class="selector-list">
+            @for (tag of tags(); track tag) {
+            <span class="chip">{{tag}} <button type="button" (click)="removeTag(tag)">✕</button></span>
+            }
+        </div>
+    </div>
+
+    <div class="selector-container">
+        <label>Publishers
+        <input #pubInput type="text" (keydown.enter)="addPublisher(pubInput.value); pubInput.value=''; $event.preventDefault()"/>
+        </label>
+        <div class="selector-list">
+            @for (publisher of publishers(); track publisher) {
+                <span class="chip">{{publisher}} <button type="button" (click)="removePublisher(publisher)">✕</button></span>
+            }
+        </div>
+    </div>
+
+    <div class="submit-container">
+        <button type="submit">Predict</button>
+    </div>
+</div>
