@@ -1,0 +1,58 @@
+<div class="prediction-form-container">
+    <div class="row">
+        <label>Title
+            <input type="text" [value]="title()" (input)="setTitle($event)" />
+        </label>
+    </div>
+
+    <div class="row">
+        <label>Price (USD)
+            <input type="number" [value]="price()" (input)="setPrice($event)" />
+        </label>
+
+        <label>Release Year
+            <input type="number" [value]="releaseYear()" (input)="setReleaseYear($event)" />
+        </label>
+
+        <label>Required Age
+            <input type="number" [value]="requiredAge()" (input)="setRequiredAge($event)" />
+        </label>
+    </div>
+
+    <div class="row">
+        <label><input type="checkbox" [checked]="isIndie()" (change)="setIsIndie($event)" /> Is Indie?</label>
+        <label><input type="checkbox" [checked]="supportsEnglish()" (change)="setSupportsEnglish($event)" /> Supports English?</label>
+
+        <label>Supported languages amount
+            <input type="number" [value]="supportedLanguagesAmount()" (input)="setSupportedLanguagesAmount($event)" />
+        </label>
+    </div>
+
+    <div class="selector-container">
+        <label>Tags
+            <select (change)="addTagFromEvent($event)">
+                <input class="dropdown-input" type="text" [value]="tagsFilter()" (input)="setTagsFilter($event)" />
+                <option *ngFor="let t of filteredTags()" [value]="t">{{t}}</option>
+            </select>
+        </label>
+        <div class="selector-list">
+            <span *ngFor="let tag of tags()" class="chip">{{tag}} <div class="remove-chip" (click)="removeTag(tag)">✕</div></span>
+        </div>
+    </div>
+
+    <div class="selector-container">
+        <label>Publishers
+            <select (change)="addPublisherFromEvent($event)">
+                <input class="dropdown-input" type="text" [value]="publishersFilter()" (input)="setPublishersFilter($event)" />
+                <option *ngFor="let p of filteredPublishers()" [value]="p">{{p}}</option>
+            </select>
+        </label>
+        <div class="selector-list">
+            <span *ngFor="let publisher of publishers()" class="chip">{{publisher}} <div class="remove-chip" (click)="removePublisher(publisher)">✕</div></span>
+        </div>
+    </div>
+
+    <div class="submit-container">
+        <button type="button" (click)="submit()">Predict</button>
+    </div>
+</div>

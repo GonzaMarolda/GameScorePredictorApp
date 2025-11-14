@@ -1,0 +1,26 @@
+:root {
+    --color-background: #0D2840; 
+    --color-header: #0A1926;
+    --color-secondary: #0A1C40;
+    --color-chip: #3E556D;
+    --color-text: #F2F2F2;
+
+    --font: "Markazi Text", serif;
+
+    --width-mobile: 480px;
+}
+
+html, body {
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+  margin: 0;
+  font-family: var(--font);
+  background: var(--color-background);
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
