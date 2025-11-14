@@ -30,26 +30,20 @@
 
     <div class="selector-container">
         <label>Tags
-            <select (change)="addTagFromEvent($event)">
-                <input class="dropdown-input" type="text" [value]="tagsFilter()" (input)="setTagsFilter($event)" />
-                <option *ngFor="let t of filteredTags()" [value]="t">{{t}}</option>
-            </select>
+            <app-dropdown
+                [availableOptions]="availableTags()"
+                (optionsOutput)="handleTagsOutput($event)"
+            ></app-dropdown>
         </label>
-        <div class="selector-list">
-            <span *ngFor="let tag of tags()" class="chip">{{tag}} <div class="remove-chip" (click)="removeTag(tag)">✕</div></span>
-        </div>
     </div>
 
     <div class="selector-container">
         <label>Publishers
-            <select (change)="addPublisherFromEvent($event)">
-                <input class="dropdown-input" type="text" [value]="publishersFilter()" (input)="setPublishersFilter($event)" />
-                <option *ngFor="let p of filteredPublishers()" [value]="p">{{p}}</option>
-            </select>
+            <app-dropdown
+                [availableOptions]="availablePublishers()"
+                (optionsOutput)="handlePublishersOutput($event)"
+            ></app-dropdown>
         </label>
-        <div class="selector-list">
-            <span *ngFor="let publisher of publishers()" class="chip">{{publisher}} <div class="remove-chip" (click)="removePublisher(publisher)">✕</div></span>
-        </div>
     </div>
 
     <div class="submit-container">

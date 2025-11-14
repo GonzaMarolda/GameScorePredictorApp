@@ -1,32 +1,32 @@
 # Node modules
-node_modules/
+client/node_modules/
 
 # Angular build outputs
-dist/
-out-tsc/
+client/dist/
+client/out-tsc/
 
 # IDE and editor settings
-vscode/
-idea/
-*.suo
-*.ntvs*
-*.njsproj
-*.sln
+client/vscode/
+client/idea/
+client/*.suo
+client/*.ntvs*
+client/*.njsproj
+client/*.sln
 
 # Logs and temporary files
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
+client/npm-debug.log*
+client/yarn-debug.log*
+client/yarn-error.log*
 
 # Environment files
-src/environments/environment.*.ts
+client/src/environments/environment.*.ts
 
 # Angular cache
-angular/
+client/angular/
 
 # System files
-DS_Store
-Thumbs.db
+client/DS_Store
+client/Thumbs.db
 
 # Bazel outputs (if applicable)
-bazel-out/
+client/bazel-out/

@@ -32,40 +32,6 @@
             min-width:160px;
         }
 
-        .selector-container { 
-            margin:0.5rem 0; 
-
-            .dropdown-input {
-                width: 100%;
-                box-sizing: border-box;
-                padding: 0.4rem;
-                margin-bottom: 0.4rem;
-                border-radius: 6px;
-                border: 1px solid #ccc;
-            }
-
-            .selector-list { 
-                margin-top:0.4rem; 
-                display:flex; gap:0.4rem; 
-                flex-wrap:wrap; 
-
-                .chip { 
-                    background: var(--color-chip);
-                    border-radius: 4px;
-                    padding: 0.25rem 0.5rem;
-                    display: inline-flex;
-                    align-items: center;
-                    gap: 0.4rem;
-                }
-
-                .remove_chip { 
-                    cursor: pointer;
-                    font-size: 0.9rem;
-                    line-height: 1;
-                }
-            }
-        }
-
         .submit-container { 
             margin-top:1rem; 
         }

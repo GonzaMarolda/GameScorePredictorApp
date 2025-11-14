@@ -12,7 +12,7 @@ export class PredictionService {
     async predict(input: PredictionInput) : Promise<number> {
         try {
             const data = await firstValueFrom(
-                this.http.post<{ prediction: number }>(this.url, input)
+                this.http.post<{ prediction: number }>(`${this.url}/predict`, input)
             )
             return data.prediction
         } catch (err) {

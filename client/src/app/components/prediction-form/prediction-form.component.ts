@@ -1,10 +1,11 @@
 import { Component, inject, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { PredictionService } from '../../services/PredictionService';
+import { DropdownComponent } from '../dropdown/dropdown.component';
 
 @Component({
   selector: 'app-prediction-form',
-  imports: [CommonModule],
+  imports: [CommonModule, DropdownComponent],
   templateUrl: './prediction-form.component.html',
   styleUrl: './prediction-form.component.scss'
 })
@@ -17,13 +18,13 @@ export class PredictionFormComponent {
   isIndie = signal<boolean>(false);
   supportsEnglish = signal<boolean>(false);
   supportedLanguagesAmount = signal<number | null>(null);
+
   availableTags = signal<string[]>([]);
   tags = signal<string[]>([]);
-  tagsFilter = signal<string>('');
+
   availablePublishers = signal<string[]>([]);
   publishers = signal<string[]>([]);
-  publishersFilter = signal<string>('');
-
+  
   constructor() {
     this.predictionService.getTags().then(tags => {
       this.availableTags.set(tags);
@@ -63,59 +64,12 @@ export class PredictionFormComponent {
     return true; // TODO
   }
 
-  addTag(tag: string) {
-    const t = (tag || '').trim();
-    if (!t) return;
-    // prevent duplicates
-    if (this.tags().includes(t)) return;
-    this.tags.update(tags => [...tags, t]);
+  handleTagsOutput(tags: string[]) {
+    this.tags.set(tags);
   }
 
-  setTagsFilter(event: Event) {
-    const value = (event.target as HTMLInputElement).value;
-    this.tagsFilter.set(value);
-  }
-
-  filteredTags() {
-    const filter = this.tagsFilter().toLowerCase();
-    return this.availableTags().filter(tag => tag.toLowerCase().includes(filter) && !this.tags().includes(tag));
-  }
-
-  addTagFromEvent(ev: Event) {
-    const val = (ev.target as HTMLSelectElement | null)?.value ?? '';
-    this.addTag(val);
-    if (ev.target && ev.target instanceof HTMLSelectElement) ev.target.value = '';
-  }
-
-  removeTag(name: string) {
-    this.tags.update(tags => tags.filter(tag => tag !== name));
-  }
-
-  addPublisher(publisher: string) {
-    const p = (publisher || '').trim();
-    if (!p) return;
-    if (this.publishers().includes(p)) return;
-    this.publishers.update(publishers => [...publishers, p]);
-  }
-
-  setPublishersFilter(event: Event) {
-    const value = (event.target as HTMLInputElement).value;
-    this.publishersFilter.set(value);
-  }
-
-  filteredPublishers() {
-    const filter = this.publishersFilter().toLowerCase();
-    return this.availablePublishers().filter(publisher => publisher.toLowerCase().includes(filter) && !this.publishers().includes(publisher));
-  }
-
-  addPublisherFromEvent(ev: Event) {
-    const val = (ev.target as HTMLSelectElement | null)?.value ?? '';
-    this.addPublisher(val);
-    if (ev.target && ev.target instanceof HTMLSelectElement) ev.target.value = '';
-  }
-
-  removePublisher(name: string) {
-    this.publishers.update(publishers => publishers.filter(publisher => publisher !== name));
+  handlePublishersOutput(publishers: string[]) {
+    this.publishers.set(publishers);
   }
 
   setPrice(event: Event) {

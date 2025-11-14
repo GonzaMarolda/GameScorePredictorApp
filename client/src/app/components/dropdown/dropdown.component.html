@@ -1,0 +1,15 @@
+<div class="dropdown-container" (click)="toggleDropdown()">
+    <input class="dropdown-input" type="text" [value]="optionsFilter()" (input)="setOptionsFilter($event)" />
+    @if (dropdownClicked()) {
+        <div class="options-list">  
+            @for (option of filteredOptions(); track option) {
+                <div class="option-item" (click)="add(option)">{{option}}</div>
+            }
+        </div>
+    }
+    <div class="selected-options-list">
+        @for (option of options(); track option) {
+            <span class="chip">{{option}} <div class="remove-chip" (click)="removeOption(option)">✕</div></span>
+        }
+    </div>
+</div>
