@@ -1,37 +1,51 @@
 :host { 
-    display:flex; 
+    display:flex;
     width: 100%;
-    box-sizing: border-box;
+    height: 100%;
     color: var(--color-text);  
 
     .dropdown-container {
+        display:flex;
+        flex-direction: row; 
         position: relative;
-        width: 50vw;
+        width: 100%;
 
         .dropdown-input {
-            width: 100%;
             box-sizing: border-box;
             padding: 0.4rem;
             margin-bottom: 0.4rem;
-            border-radius: 6px;
-            border: 1px solid #ccc;
+            border-radius: 3px;
+            height: 1.6rem;
+            width: 20%;
+            border: 1px solid var(--color-input-background-b);
+            background: var(--color-input-background);
+            color: var(--color-text);
+
+            &:focus { 
+                outline: none; 
+                border-color: var(--color-input-border);
+            }
         }
 
         .options-list {
             position: absolute;
-            top: 100%;
+            bottom: calc(100% - 1.6rem - 6rem - 0.3rem);
             left: 0;
-            right: 0;
+            right: 0; 
+            width: 20%;
+            height: 6rem;
             background: var(--color-background);
-            border: 1px solid #ccc;
-            border-radius: 6px;
-            max-height: 150px;
+            border: 1px solid #cccccc66;
+            border-radius: 4px;
+            max-height: 250px;
             overflow-y: auto;
+            overflow-x: hidden;
             z-index: 10;
 
             .option-item {
                 padding: 0.4rem;
                 cursor: pointer;
+                border-top: 1px solid #cccccc66;
 
                 &:hover {
                     background: var(--color-hover);
@@ -42,21 +56,27 @@
         .selected-options-list {
             display:flex; 
             flex-direction: row;
-            gap:0.4rem; 
-            flex-wrap:wrap; 
+            gap: 0.4rem 0.4rem;
+            align-content: flex-start; 
+            flex-wrap: wrap;
+            width: 80%;
+            height: 100%;
+            margin-left: 0.5rem;
 
             .chip { 
                 background: var(--color-chip);
+                height: 1.6rem;
+                font-size: 0.85rem;
                 border-radius: 4px;
-                padding: 0.25rem 0.5rem;
+                padding: 0rem 0.4rem;
                 display: inline-flex;
                 align-items: center;
                 gap: 0.4rem;
             }
 
-            .remove_chip { 
+            .remove-chip { 
                 cursor: pointer;
-                font-size: 0.9rem;
+                font-size: 0.6rem;
                 line-height: 1;
             }
         }

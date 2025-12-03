@@ -16,7 +16,7 @@ export class DropdownComponent {
 
   @HostListener('document:click', ['$event'])
   onDocumentClick(event: MouseEvent) {
-    const clickedInside = (event.target as HTMLElement).closest('.dropdown-container');
+    const clickedInside = (event.target as HTMLElement).closest('.dropdown-input');
     if (!clickedInside) {
       this.dropdownClicked.set(false);
     }

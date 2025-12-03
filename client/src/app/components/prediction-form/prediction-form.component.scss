@@ -1,6 +1,8 @@
 :host { 
     display:flex; 
+    align-items: center;
     width: 100%;
+    height: 100%;
     padding:1rem; 
     box-sizing: border-box;
     color: var(--color-text);  
@@ -8,15 +10,61 @@
     .prediction-form-container { 
         display: flex;
         flex-direction: column;
-        align-items: center;
+        align-items: flex-start;
         justify-content: center;
+        background: var(--color-panel-background);
+        background: linear-gradient(to bottom, var(--color-panel-background-a), var(--color-panel-background-b));
+        padding: 1.5rem;
         width: 100%;
+        height: 85%;
 
         .row { 
             display:flex; 
             gap:1rem; 
             flex-wrap:wrap; 
             margin-bottom:0.75rem; 
+            width: 100%;
+
+            .number-inputs-container {
+                display: flex;
+                justify-content: space-between;
+                width: 100%;
+
+                .number-inputs-labels-container {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 0.5rem;
+                }   
+
+                .number-inputs-fields-container {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 0.5rem;
+                    width: 3rem;
+                }
+            }
+        }
+
+        .title-input {
+            width: 100%;
+            padding:0.5rem;
+            border-radius:5px;
+            border: 1px solid var(--color-chip);
+            background: var(--color-input-background);
+            color: var(--color-text);
+            font-size:0.95rem;
+            text-align: center;
+
+            &:focus { 
+                outline: none; 
+                border-color: var(--color-input-border); 
+            }
+
+            &::placeholder {
+                color: var(--color-text);
+                font-style: italic;
+                opacity: 0.95;
+            }
         }
 
         label { 
@@ -26,14 +74,55 @@
         }
 
         input[type="text"], input[type="number"] { 
-            padding:0.4rem; 
-            border-radius:6px; 
-            border:1px solid #ccc; 
-            min-width:160px;
+            padding:0.3rem; 
+            padding-bottom: 0.25rem;
+            border-radius:3px; 
+            border: 1px solid var(--color-input-background-b); 
+            background: var(--color-input-background);
+            color: var(--color-text);
+
+            &:focus { 
+                outline: none; 
+                border-color: var(--color-input-border); 
+            }
+        }
+
+        input[typ]
+
+
+
+        .req-age {
+            max-width: 2rem;
         }
 
         .submit-container { 
+            display: flex;
+            justify-content: center;
             margin-top:1rem; 
+            width: 100%;
+
+            .submit-button {
+                font-size: 1rem;
+                border: none;
+                border-radius: 2px;
+                padding: 0.3rem 0.6rem;
+                width: 20%;
+                background: linear-gradient(to bottom, var(--color-button-background-a), var(--color-button-background-b));
+                color: var(--color-text);
+                cursor: pointer;
+                transition: background-color 0.3s ease;
+
+                &:hover {
+                    background-color: var(--color-button-hover);
+                }
+            }   
+        }
+
+        .selector-container {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 0.2rem;
         }
     }
 }    

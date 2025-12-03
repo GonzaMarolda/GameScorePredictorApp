@@ -11,6 +11,13 @@
         justify-content: center;
         align-items: center;
         height: 100%;
-        width: 100%;
+        width: 100%;   
+
+        .arrow {
+            width: 10%;
+            height: auto;
+            box-sizing: border-box;
+            padding: 3rem 3rem;
+        }
     }
 }

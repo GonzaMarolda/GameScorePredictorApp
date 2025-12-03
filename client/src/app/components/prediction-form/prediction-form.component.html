@@ -1,52 +1,49 @@
 <div class="prediction-form-container">
-    <div class="row">
-        <label>Title
-            <input type="text" [value]="title()" (input)="setTitle($event)" />
-        </label>
+    <div class="row" style="justify-content: center;">
+        <input class="title-input" type="text" placeholder="The title of the game (optional)" [value]="title()" (input)="setTitle($event)" />
     </div>
 
     <div class="row">
-        <label>Price (USD)
-            <input type="number" [value]="price()" (input)="setPrice($event)" />
-        </label>
-
-        <label>Release Year
-            <input type="number" [value]="releaseYear()" (input)="setReleaseYear($event)" />
-        </label>
-
-        <label>Required Age
-            <input type="number" [value]="requiredAge()" (input)="setRequiredAge($event)" />
-        </label>
+        <div class="number-inputs-container">
+            <div class="number-inputs-labels-container">
+                <label style="padding: 0.3rem; padding-left: 0;">Price (USD)</label>
+                <label style="padding: 0.3rem; padding-left: 0;">Release Year</label>
+                <label style="padding: 0.3rem; padding-left: 0;">Required Age</label>
+                <label style="padding: 0.3rem; padding-left: 0;">Supported Languages</label>
+            </div>
+            <div class="number-inputs-fields-container">
+                <input type="number" [value]="price()" (input)="setPrice($event)" />
+                <input type="number" [value]="releaseYear()" (input)="setReleaseYear($event)" />
+                <input class="req-age" type="number" [value]="requiredAge()" (input)="setRequiredAge($event)" />
+                <input type="number" [value]="supportedLanguagesAmount()" (input)="setSupportedLanguagesAmount($event)" />
+            </div>
+        </div>
     </div>
 
-    <div class="row">
-        <label><input type="checkbox" [checked]="isIndie()" (change)="setIsIndie($event)" /> Is Indie?</label>
-        <label><input type="checkbox" [checked]="supportsEnglish()" (change)="setSupportsEnglish($event)" /> Supports English?</label>
-
-        <label>Supported languages amount
-            <input type="number" [value]="supportedLanguagesAmount()" (input)="setSupportedLanguagesAmount($event)" />
-        </label>
+    <div class="selector-container" style="height: 100%;">
+        <label>Tags</label>
+        <app-dropdown
+            [availableOptions]="availableTags()"
+            (optionsOutput)="handleTagsOutput($event)"
+        ></app-dropdown>
     </div>
 
     <div class="selector-container">
-        <label>Tags
-            <app-dropdown
-                [availableOptions]="availableTags()"
-                (optionsOutput)="handleTagsOutput($event)"
-            ></app-dropdown>
-        </label>
+        <label>Publishers</label>
+        <app-dropdown
+            [availableOptions]="availablePublishers()"
+            (optionsOutput)="handlePublishersOutput($event)"
+        ></app-dropdown>
     </div>
 
-    <div class="selector-container">
-        <label>Publishers
-            <app-dropdown
-                [availableOptions]="availablePublishers()"
-                (optionsOutput)="handlePublishersOutput($event)"
-            ></app-dropdown>
-        </label>
+    <div class="row">
+        <label><input type="checkbox" [checked]="isIndie()" (change)="setIsIndie($event)" /> Indie</label>
+                <div>
+        <label><input type="checkbox" [checked]="supportsEnglish()" (change)="setSupportsEnglish($event)" />Supports English</label>
+        </div>
     </div>
 
     <div class="submit-container">
-        <button type="button" (click)="submit()">Predict</button>
+        <button class="submit-button" type="button" (click)="submit()">Predict</button>
     </div>
 </div>

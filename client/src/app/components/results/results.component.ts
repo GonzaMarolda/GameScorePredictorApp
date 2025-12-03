@@ -7,5 +7,5 @@ import { Component, input, signal } from '@angular/core';
   styleUrl: './results.component.scss'
 })
 export class ResultsComponent {
-  data = input.required<number>();
+  results = input.required<number | null>();
 }

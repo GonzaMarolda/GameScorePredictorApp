@@ -73,17 +73,41 @@ export class PredictionFormComponent {
   }
 
   setPrice(event: Event) {
-    const value = (Number)((event.target as HTMLInputElement).value);
+    const input = (event.target as HTMLInputElement);
+    const raw = (event.target as HTMLInputElement).value;
+    const value = (Number)(raw);
+
+    if (raw.length >= 4) {
+      input.value = this.price() !== null ? String(this.price()) : '';
+      return;
+    }
+
     this.price.set(value);
   }
 
   setRequiredAge(event: Event) {
-    const value = (Number)((event.target as HTMLInputElement).value);
+    const input = (event.target as HTMLInputElement);
+    const raw = (event.target as HTMLInputElement).value;
+    const value = (Number)(raw);
+
+    if (raw.length >= 3) {
+      input.value = this.requiredAge() !== null ? String(this.requiredAge()) : '';
+      return;
+    }
+
     this.requiredAge.set(value);
   }
 
   setReleaseYear(event: Event) {
-    const value = (Number)((event.target as HTMLInputElement).value);
+    const input = (event.target as HTMLInputElement);
+    const raw = (event.target as HTMLInputElement).value;
+    const value = (Number)(raw);
+
+    if (raw.length >= 5) {
+      input.value = this.releaseYear() !== null ? String(this.releaseYear()) : '';
+      return;
+    }
+
     this.releaseYear.set(value);
   }
 
@@ -98,7 +122,15 @@ export class PredictionFormComponent {
   }
 
   setSupportedLanguagesAmount(event: Event) {
-    const value = (Number)((event.target as HTMLInputElement).value);
+    const input = (event.target as HTMLInputElement);
+    const raw = (event.target as HTMLInputElement).value;
+    const value = (Number)(raw);
+
+    if (raw.length >= 3) {
+      input.value = this.supportedLanguagesAmount() !== null ? String(this.supportedLanguagesAmount()) : '';
+      return;
+    }
+
     this.supportedLanguagesAmount.set(value);
   }
 

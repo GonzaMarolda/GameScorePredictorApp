@@ -1,5 +1,5 @@
-<div class="dropdown-container" (click)="toggleDropdown()">
-    <input class="dropdown-input" type="text" [value]="optionsFilter()" (input)="setOptionsFilter($event)" />
+<div class="dropdown-container">
+    <input class="dropdown-input" type="text" (click)="toggleDropdown()" [value]="optionsFilter()"  (input)="setOptionsFilter($event)" />
     @if (dropdownClicked()) {
         <div class="options-list">  
             @for (option of filteredOptions(); track option) {
