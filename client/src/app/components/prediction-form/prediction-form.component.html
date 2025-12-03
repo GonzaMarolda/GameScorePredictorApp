@@ -20,11 +20,12 @@
         </div>
     </div>
 
-    <div class="selector-container" style="height: 100%;">
+    <div class="selector-container" style="height: 8rem;">
         <label>Tags</label>
         <app-dropdown
             [availableOptions]="availableTags()"
             (optionsOutput)="handleTagsOutput($event)"
+            [amountLimit]="15"
         ></app-dropdown>
     </div>
 
@@ -33,6 +34,7 @@
         <app-dropdown
             [availableOptions]="availablePublishers()"
             (optionsOutput)="handlePublishersOutput($event)"
+            [amountLimit]="2"
         ></app-dropdown>
     </div>
 

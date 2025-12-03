@@ -9,6 +9,7 @@ import { CommonModule } from '@angular/common';
 })
 export class DropdownComponent {
   dropdownClicked = signal<boolean>(false);
+  amountLimit = input<number>(0);
   availableOptions = input<string[]>([]);
   options = signal<string[]>([]);
   optionsOutput = output<string[]>();
@@ -25,8 +26,16 @@ export class DropdownComponent {
   add(option: string) {
     const t = (option || '').trim();
     if (!t) return;
+
     // prevent duplicates
     if (this.options().includes(t)) return;
+
+    if (this.options().length >= this.amountLimit()) {
+      this.options.update(options => [...options.slice(0, options.length - 1), t]);
+      this.optionsOutput.emit(this.options());
+      return;
+    }
+
     this.options.update(options => [...options, t]);
     this.optionsOutput.emit(this.options());
   }

@@ -1,19 +1,9 @@
 <div class="body-container">
-    @if (loading()) { <div class="loading">Calculating…</div> }
-
     <div style="width: 60%; height: 100%;">
         <app-prediction-form (onPredict)="handlePredict($event)"></app-prediction-form>
     </div>
 
-    <div class="arrow">
-        <svg width="100%" height="50%" viewBox="-19.04 0 75.804 75.804" fill="#F2F2F2">
-            <g id="Group_65" data-name="Group 65" transform="translate(-831.568 -384.448)">
-                <path id="Path_57" data-name="Path 57" d="M833.068,460.252a1.5,1.5,0,0,1-1.061-2.561l33.557-33.56a2.53,2.53,0,0,0,0-3.564l-33.557-33.558a1.5,1.5,0,0,1,2.122-2.121l33.556,33.558a5.53,5.53,0,0,1,0,7.807l-33.557,33.56A1.5,1.5,0,0,1,833.068,460.252Z"/>
-            </g>
-        </svg>
-    </div>
-
-    <div style="width: 40%;">
+    <div style="width: 40%; height: 100%;">
         <app-results [results]="result()"></app-results>
     </div>
 </div>          

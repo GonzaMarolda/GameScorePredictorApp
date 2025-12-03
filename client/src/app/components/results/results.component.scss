@@ -1,2 +1,51 @@
 :host {
+    height: 100%;
+    width: 100%;
+    padding: 1rem; 
+    display: flex;
+    color: var(--color-text);
+    box-sizing: border-box;
+    align-items: center;
+    justify-content: center;
+
+    .results-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        box-sizing: border-box;
+        padding: 1rem 3rem;
+        max-height: 8rem;
+        height: 20%;
+        border-radius: 5px;
+        box-shadow: 0 4px 8px 0 #00000066;
+        background: linear-gradient(to bottom, var(--color-results-background-b) 30%, var(--color-results-background-a) 80%);
+
+        .game-title {
+            display: flex;
+            align-items: center;
+            height: 20%;
+            font-size: 1rem;
+            color: var(--color-results-text-b);
+        }
+
+        .header {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 60%;
+            width: 100%;
+            text-align: center;
+            font-size: 1.5em;
+            font-weight: bold;
+            text-shadow: 0 0 5px #00000088;
+            color: var(--color-results-text);
+        }
+
+        .rating-score {
+            height: 20%;
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: var(--color-results-text-b);
+        }
+    }
 }

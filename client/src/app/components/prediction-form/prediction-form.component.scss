@@ -12,11 +12,12 @@
         flex-direction: column;
         align-items: flex-start;
         justify-content: center;
+        box-shadow: 0 4px 8px 0 #00000066;
+        border-radius: 5px;
         background: var(--color-panel-background);
         background: linear-gradient(to bottom, var(--color-panel-background-a), var(--color-panel-background-b));
         padding: 1.5rem;
         width: 100%;
-        height: 85%;
 
         .row { 
             display:flex; 
